@@ -1,0 +1,28 @@
+{% extends 'marketplace/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <h1>Товары:</h1>
+<div class="d-flex flex-wrap justify-content-between">
+    {% for el in items %}
+        <div class="d-flex alert alert-warning mt-3 justify-content-between align-items-center" style="width: 31%">
+            <div class=" ">
+                <h3>{{ el.name }}</h3>
+                <div class="">
+                    <p class="m-0">Brand: {{el.brand_id }}</p>
+                    <p class="m-0">Category: {{el.category_id }}</p>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end">
+                <p class="m-0 p-2 text-end">Price:<br/>{{el.price}}</p>
+                <button class="btn btn-success">
+                    Buy
+                </button>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
